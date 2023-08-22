@@ -19,6 +19,48 @@ class ReceptDataController extends Controller
 
         $data = $response->json();
         return $data;
+    }
 
+    public function getPedidos(Request $request)
+    {   
+        $items = [
+            [
+              "userId" => 1,
+              "id" => 1,
+              "title" => "Item 1",
+              "body" => "This is the body of Item 1"
+            ],
+            [
+              "userId" => 1,
+              "id" => 2,
+              "title" => "Item 2",
+              "body" => "This is the body of Item 2"
+            ],
+            [
+              "userId" => 2,
+              "id" => 3,
+              "title" => "Item 3",
+              "body" => "This is the body of Item 3"
+            ],
+            [
+                "userId" => 4,
+                "id" => 3,
+                "title" => "Item 3",
+                "body" => "This is the body of Item 3"
+              ]
+          ];
+          
+          // Crear una respuesta JSON
+          $response = [
+            "success" => true,
+            "message" => "Data retrieved successfully",
+            "data" => $items
+          ];
+          
+          // Configurar las cabeceras para indicar que la respuesta es JSON
+          header("Content-Type: application/json");
+          
+          // Enviar la respuesta JSON
+          return json_encode($response);
     }
 }

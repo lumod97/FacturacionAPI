@@ -9,5 +9,13 @@ Route::group(
     ['prefix' => 'settings'],
     function () {
         Route::post('get-initial-token', 'App\Http\Controllers\ReceptDataController@getInitialToken');
+        Route::post('generate-xml-document', 'App\Http\Controllers\GenerateXMLController@generateXml');
+    }
+);
+
+Route::group(
+    ['prefix' => 'pedidos'],
+    function () {
+        Route::post('get-carta', 'App\Http\Controllers\ReceptDataController@getPedidos');
     }
 );
